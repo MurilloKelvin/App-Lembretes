@@ -17,6 +17,9 @@ namespace RemindersDTI.DTOs
         // Implementação da validação da data
         public IEnumerable<ValidationResult> Validate(ValidationContext validationContext)
         {
+            
+            var today = DateTime.Today;
+
             if (ReminderDate < DateTime.Now)
             {
                 yield return new ValidationResult(

@@ -26,6 +26,9 @@ namespace RemindersDTI.Controllers
         [HttpPost]
         public async Task<IActionResult> CreateReminder([FromBody] CreateReminderDto reminderDto)
         {
+            if(reminderDto.ReminderDate.Date < DateTime.Now.Date)
+                return BadRequest("A data do lembrete não pode estar no passado."); // Retorna 400
+
             var reminder = await _reminderService.CreateAsync(reminderDto);
             return Created($"/api/reminders/{reminder.Id}", reminder); // Retorna o status 201 +  o lemnbrete
         }

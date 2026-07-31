@@ -12,6 +12,18 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 
+// CORS 
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("AllowAll", builder =>
+    {
+        builder.AllowAnyOrigin()
+               .AllowAnyMethod()
+               .AllowAnyHeader();
+    });
+});
+
+
 var connectionString = builder.Configuration.GetConnectionString("DefaultConnection"); // Obtém a string de conexão do arquivo appsettings.json
 
 builder.Services.AddDbContext<AppDbContext>(options =>
@@ -21,6 +33,8 @@ builder.Services.AddScoped<IReminderService, ReminderService>(); // Adiciona o s
 var app = builder.Build();
 
 
+// configuar o CORS para permitir requisições de qualquer origem, método e cabeçalho
+app.UseCors("AllowAll");
 
 // Configure the HTTP request pipeline.
 if (app.Environment.IsDevelopment())
