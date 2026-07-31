@@ -120,3 +120,12 @@ h2 {
   color: #e53e3e;
   cursor: pointer;
 }
+/* --- ESTILO PARA LEMBRETES DO PASSADO --- */
+.pastReminder {
+  text-decoration: line-through;
+  opacity: 0.6;
+}
+
+.pastReminder strong {
+  color: #a0aec0; /* Um cinza mais claro para o título */
+}

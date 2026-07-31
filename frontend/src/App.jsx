@@ -130,7 +130,7 @@ export default function App() {
               type="date"
               value={date}
               onChange={(e) => setDate(e.target.value)}
-               min={today} // Impede datas passadas no calendario
+              min={today} // Impede datas passadas no calendario
               required // Validação HTML
             />
           </div>
@@ -157,7 +157,7 @@ export default function App() {
                 {/* Lembretes daquela data específica */}
                 {groupedReminders[dateKey].map(reminder => (
                   <li key={reminder.id}>
-                    <div className={styles.reminderInfo}>
+                    <div className={`${styles.reminderInfo} ${dateKey < today ? styles.pastReminder : ''}`}> {/* Adiciona um risco a lembretes passados */}
                       <strong>{reminder.name}</strong>
                       {reminder.description && <span>{reminder.description}</span>}
                     </div>
