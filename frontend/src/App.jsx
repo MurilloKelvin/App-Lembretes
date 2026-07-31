@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react';
 import axios from 'axios';
 import { Trash2 } from 'lucide-react';
-import styles from './App.module.css';
+import styles from './App.module.scss';
 
 // URL da API local
 const API_URL = 'http://localhost:5094/api/reminders';
