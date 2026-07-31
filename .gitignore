@@ -365,4 +365,3 @@ FodyWeavers.xsd
 # db 
 *.db-shm
 *.db-wal
-/WebApplication2/reminders.db
