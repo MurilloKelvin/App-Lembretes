@@ -20,6 +20,7 @@ namespace RemindersDTI.Services
             {
                 Id = Guid.NewGuid(),
                 Name = reminderDto.Name,
+                Description = reminderDto.Description,
                 ReminderDate = reminderDto.ReminderDate
             };
 
@@ -30,6 +31,7 @@ namespace RemindersDTI.Services
             {
                 Id = reminder.Id,
                 Name = reminder.Name,
+                Description = reminder.Description,
                 ReminderDate = reminder.ReminderDate
             };
         }
@@ -57,6 +59,7 @@ namespace RemindersDTI.Services
             {
                 Id = r.Id,
                 Name = r.Name,
+                Description = r.Description,
                 ReminderDate = r.ReminderDate
             });
         }
